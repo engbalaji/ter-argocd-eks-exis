@@ -1,3 +1,8 @@
+variable "aws_region" {
+  type    = string
+  default = "us-east-1"
+}
+
 ## ArgoCD server
 variable "argocd_chart_version" {
   type    = string

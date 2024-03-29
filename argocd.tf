@@ -1,12 +1,18 @@
 #https://artifacthub.io/packages/helm/argo/argo-cd/3.1.2
 
+Provider aws {
+  region = var.aws_region
+}
+
 provider "helm" {
   kubernetes {
-    config_path = "~/.kube/config"
+    #config_path = "~/.kube/config"
+    config_path = "/mnt/workspace/config"
   }
 }
 
 provider "kubernetes" {
+  #config_path = "~/.kube/config"
   config_path = "/mnt/workspace/config"
 }
 
