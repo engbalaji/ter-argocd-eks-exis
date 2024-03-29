@@ -13,3 +13,8 @@ variable "argocd_k8s_namespace" {
   type    = string
   default = "argo-cd"
 }
+
+variable "eks_role" {
+  type    = string
+  default = "AWS_EKS_Admin"
+}
