@@ -8,5 +8,5 @@ variable "eks-name" {
 }
 
 variable "env" {
-  default = "staging"
+  default = "dev"
 }
