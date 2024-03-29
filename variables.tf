@@ -1,25 +1,12 @@
-variable "aws_region" {
-  type    = string
+variable "region" {
   default = "us-east-1"
 }
 
-## ArgoCD server
-variable "argocd_chart_version" {
+variable "eks-name" {
   type    = string
-  default = "4.9.8"
+  default = "pepoc-eks-cluster"
 }
 
-variable "argocd_chart_name" {
-  type    = string
-  default = "argo-cd"
-}
-
-variable "argocd_k8s_namespace" {
-  type    = string
-  default = "argo-cd"
-}
-
-variable "eks_role" {
-  type    = string
-  default = "AWS_EKS_Admin"
+variable "env" {
+  default = "staging"
 }
