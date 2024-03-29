@@ -1,6 +1,6 @@
 #https://artifacthub.io/packages/helm/argo/argo-cd/3.1.2
 
-Provider aws {
+provider aws {
   region = var.aws_region
 }
 
