@@ -16,7 +16,10 @@ resource "helm_release" "argocd-staging" {
   namespace  = "argocd-staging"
   timeout    = "1200"
   #values     = [templatefile("./argocd/install.yaml", {})]
-  values_file = "./installs.yaml"
+  #values     = templatefile("./argocd/install.yaml", {})
+  values     = templatefile("./install.yaml", {})
+  #values_file = "./installs.yaml"
+  values = "install.yaml"
 }
 
 resource "null_resource" "password" {
