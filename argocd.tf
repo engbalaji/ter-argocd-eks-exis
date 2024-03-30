@@ -17,7 +17,8 @@ resource "helm_release" "argocd-staging" {
   timeout    = "1200"
   #values     = [templatefile("./argocd/install.yaml", {})]
   #values     = templatefile("./argocd/install.yaml", {})
-  values     = templatefile("./install.yaml", {})
+  #values     = templatefile("./install.yaml", {})
+  values = [yamlencode(file("./install.yaml"))]
   #values_file = "./installs.yaml"
   #values = "install.yaml"
 }
