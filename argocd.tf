@@ -19,7 +19,7 @@ resource "helm_release" "argocd-staging" {
   #values     = templatefile("./argocd/install.yaml", {})
   values     = templatefile("./install.yaml", {})
   #values_file = "./installs.yaml"
-  values = "install.yaml"
+  #values = "install.yaml"
 }
 
 resource "null_resource" "password" {
