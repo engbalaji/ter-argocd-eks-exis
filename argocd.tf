@@ -31,5 +31,3 @@ resource "null_resource" "del-argo-pass" {
     command = "kubectl -n argocd-staging delete secret argocd-initial-admin-secret"
   }
 }
-
-}
