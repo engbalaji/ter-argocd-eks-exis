@@ -13,3 +13,4 @@ variable "env" {
 
 variable "kubeconfigfile" {
   default = "/mnt/workspace/config"
+}
