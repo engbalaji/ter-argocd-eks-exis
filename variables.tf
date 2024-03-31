@@ -10,3 +10,6 @@ variable "eks-name" {
 variable "env" {
   default = "dev"
 }
+
+variable "kubeconfigfile" {
+  default = "/mnt/workspace/config"

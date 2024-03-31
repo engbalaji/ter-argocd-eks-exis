@@ -9,7 +9,8 @@ resource "kubernetes_namespace" "argocd" {
 }
 
 provider "kubernetes" {
-  config_path = "~/.kube/config" # Path to kubeconfig file
+  #config_path = "~/.kube/config" # Path to kubeconfig file
+  config_path = var.kubeconfig
 }
 
 resource "helm_release" "argocd-staging" {
