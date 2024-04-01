@@ -14,11 +14,11 @@ provider "kubernetes" {
 }
 
 resource "helm_release" "argocd-dev" {
-  name       = "argocd-dev"
+  name       = "argocd-${var.env}"
   chart      = "argo-cd"
   repository = "https://argoproj.github.io/argo-helm"
   version    = "5.27.3"
-  namespace  = "argocd-dev"
+  namespace  = "argocd-${var.env}"
   timeout    = "1200"
   #values     = [templatefile("./argocd/install.yaml", {})]
   #values     = templatefile("./argocd/install.yaml", {})
@@ -38,6 +38,6 @@ resource "null_resource" "password" {
 resource "null_resource" "del-argo-pass" {
   depends_on = [null_resource.password]
   provisioner "local-exec" {
-    command = "kubectl -n argocd-staging delete secret argocd-initial-admin-secret"
+    command = "kubectl -n argocd-dev delete secret argocd-initial-admin-secret"
   }
 }
