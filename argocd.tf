@@ -13,12 +13,12 @@ provider "kubernetes" {
   config_path = var.kubeconfigfile # Path to kubeconfig file
 }
 
-resource "helm_release" "argocd-staging" {
-  name       = "argocd-staging"
+resource "helm_release" "argocd-dev" {
+  name       = "argocd-dev"
   chart      = "argo-cd"
   repository = "https://argoproj.github.io/argo-helm"
   version    = "5.27.3"
-  namespace  = "argocd-staging"
+  namespace  = "argocd-dev"
   timeout    = "1200"
   #values     = [templatefile("./argocd/install.yaml", {})]
   #values     = templatefile("./argocd/install.yaml", {})
