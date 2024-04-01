@@ -23,7 +23,7 @@ resource "helm_release" "argocd-staging" {
   #values     = [templatefile("./argocd/install.yaml", {})]
   #values     = templatefile("./argocd/install.yaml", {})
   #values     = templatefile("./install.yaml", {})
-  values = [yamlencode(file("./install.yaml"))]
+  values = [yamlencode(file("./argocd/install.yaml"))]
   #values_file = "./installs.yaml"
   #values = "install.yaml"
 }
