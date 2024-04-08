@@ -28,17 +28,12 @@ resource "helm_release" "argocd-dev" {
   #values = "install.yaml"
 }
 
-provider "kubernetes" {
-  #config_path = "~/.kube/config" # Path to kubeconfig file
-  config_path = var.kubeconfigfile # Path to kubeconfig file
-}
-
 resource "null_resource" "password" {
   provisioner "local-exec" {
     working_dir = "./argocd"
     command     = "kubectl -n argocd-dev get secret argocd-initial-admin-secret -o jsonpath={.data.password} | base64 -d > argocd-login.txt"
   }
-#}
+}
 
 resource "null_resource" "del-argo-pass" {
   depends_on = [null_resource.password]
