@@ -7,6 +7,12 @@ variable "region" {
   default     = "us-east-1"
 }
 
+variable "cluster_name" {
+  description = "eks-pepoc"
+  type        = string
+  default     = "eks-pepoc"
+}
+
 variable "release_name" {
   type        = string
   description = "Helm release name"
