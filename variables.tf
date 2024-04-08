@@ -13,6 +13,18 @@ variable "cluster_name" {
   default     = "eks-pepoc"
 }
 
+variable "env" {
+  description = "Environment"
+  type        = string
+  default     = "dev"
+}
+
+variable "kubeconfigfilepath" {
+  type        = string
+  description = "Path to kubeconfig file"
+  default     = "~/.kube/config"
+}
+
 variable "release_name" {
   type        = string
   description = "Helm release name"
