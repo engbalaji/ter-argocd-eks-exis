@@ -22,7 +22,7 @@ variable "env" {
 variable "kubeconfigfilepath" {
   type        = string
   description = "Path to kubeconfig file"
-  default     = "~/.kube/config"
+  default     = "/home/spacelift/.kube/config"
 }
 
 variable "release_name" {

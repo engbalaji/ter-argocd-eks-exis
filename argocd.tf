@@ -31,13 +31,13 @@ resource "helm_release" "argocd-dev" {
 resource "null_resource" "password" {
   provisioner "local-exec" {
     working_dir = "./argocd"
-    command     = "kubectl -n argocd-dev get secret argocd-initial-admin-secret -o jsonpath={.data.password} | base64 -d > argocd-login.txt"
+    command     = "./kubectl -n argocd-dev get secret argocd-initial-admin-secret -o jsonpath={.data.password} | base64 -d > argocd-login.txt"
   }
 }
 
 resource "null_resource" "del-argo-pass" {
   depends_on = [null_resource.password]
   provisioner "local-exec" {
-    command = "kubectl -n argocd-dev delete secret argocd-initial-admin-secret"
+    command = "./kubectl -n argocd-dev delete secret argocd-initial-admin-secret"
   }
 }
