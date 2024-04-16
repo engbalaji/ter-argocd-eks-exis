@@ -13,6 +13,16 @@ variable "cluster_name" {
   default     = "eks-pepoc"
 }
 
+variable "cluster_endpoint" {
+  type        = string
+  description = "Cluster endpoint"
+}
+
+variable "cluster_ca_cert" {
+  type        = string
+  description = "Cluster CA certificate"
+  }
+
 variable "env" {
   description = "Environment"
   type        = string
@@ -78,3 +88,5 @@ variable "vpc_use" {
   description = "VPC to be used"
   default     = "vpc-b30658d4"
 }
+
+

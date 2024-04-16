@@ -8,11 +8,6 @@ resource "kubernetes_namespace" "argocd" {
   }
 }
 
-provider "kubernetes" {
-  #config_path = "~/.kube/config" # Path to kubeconfig file
-  config_path = var.kubeconfigfilepath # Path to kubeconfig file
-}
-
 resource "helm_release" "argocd-dev" {
   name       = "argocd-${var.env}"
   chart      = "argo-cd"
