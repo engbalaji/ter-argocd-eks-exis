@@ -15,12 +15,8 @@ resource "helm_release" "argocd-dev" {
   version    = "5.27.3"
   namespace  = "argocd-${var.env}"
   timeout    = "1200"
-  #values     = [templatefile("./argocd/install.yaml", {})]
-  #values     = templatefile("./argocd/install.yaml", {})
-  #values     = templatefile("./install.yaml", {})
-  values = [yamlencode(file("./argocd/install.yaml"))]
-  #values_file = "./installs.yaml"
-  #values = "install.yaml"
+  #values = [yamlencode(file("./argocd/install.yaml"))]
+  values = ["${file("install.yaml")}"]
 }
 
 resource "null_resource" "password" {
